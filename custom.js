@@ -19,7 +19,7 @@ const displayContry = data => {
             <img class='img' src='${result.flags.svg}'>
             <p class='py-0 my-0'>Population : ${result.population}</p>
             <p class='py-0 my-0'>Region : ${result.region}</p>
-            <p class='py-0 my-0'>Region : ${result.capital}</p>
+            <p class='py-0 my-0'>Capital : ${result.capital}</p>
             
         </div>
 
