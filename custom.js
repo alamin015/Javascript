@@ -7,7 +7,7 @@ fetch('https://restcountries.com/v2/all')
 const displayContry = data => {
     const card = document.getElementById('card')
     data.forEach(result => {
-        console.log(result)
+        // console.log(result)
         const div = document.createElement('div');
         div.classList.add('col-12');
         div.classList.add('col-md-4');
@@ -20,6 +20,9 @@ const displayContry = data => {
             <p class='py-0 my-0'>Population : ${result.population}</p>
             <p class='py-0 my-0'>Region : ${result.region}</p>
             <p class='py-0 my-0'>Capital : ${result.capital}</p>
+            <p class='py-0 my-0'>area : ${result.area} square miles</p>
+            <p class='py-0 my-0'id='nativeName'>nativeName : ${result.nativeName}</p>
+            
             
         </div>
 
@@ -28,10 +31,3 @@ const displayContry = data => {
     })
 }
 
-
-const loadData = () => {
-    const id = document.getElementById('fixedCard');
-    id.classList.add('active');
-
-
-}
