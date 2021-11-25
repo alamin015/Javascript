@@ -1,76 +1,37 @@
-// fetch('https://jsonplaceholder.typicode.com/comments')
-// .then(json => json.json())
-// .then(data => displayData(data))
+
+fetch('https://restcountries.com/v2/all')
+.then(res => res.json())
+.then(data => displayContry(data))
 
 
-
-
-// const displayData = (data) => {
-//     const body = document.getElementById('body')
-//     for(data of data){
-//         let tr = document.createElement('tr')
-//         tr.innerHTML = `
+const displayContry = data => {
+    const card = document.getElementById('card')
+    data.forEach(result => {
+        console.log(result)
+        const div = document.createElement('div');
+        div.classList.add('col-12');
+        div.classList.add('col-md-4');
+        div.classList.add('col-sm-6');
+        div.innerHTML = `
         
-//         <td>${data.id}</td>
-//         <td>${data.email}</td>
-//         <td>${data.body}</td>
+        <div class="card m-2 p-2">
+            <h4>${result.name}</h4>
+            <img class='img' src='${result.flags.svg}'>
+            <p class='py-0 my-0'>Population : ${result.population}</p>
+            <p class='py-0 my-0'>Region : ${result.region}</p>
+            <p class='py-0 my-0'>Region : ${result.capital}</p>
+            
+        </div>
 
-        
-        
-        
-//         `;
-//         body.appendChild(tr)
-//     }
-// }
-
-// const api = () => {
-//     fetch('https://api.kanye.rest/')
-//     .then(response => response.json())
-//     .then(data => display(data))
-// }
-
-
-// const display = (data) => {
-//     const hello = document.getElementById('hello');
-//     let q = document.createElement('q');
-//     q.innerHTML = `${data.quote} <br>`;
-//     hello.appendChild(q);
-// }
-
-
-const randomUser = () => {
-    fetch('http://bdapis.herokuapp.com/api/v1.1/districts')
-    .then(response => response.json())
-    .then(data => displayData(data))
+        `
+        card.appendChild(div)
+    })
 }
 
-const displayData = (data) => {
-    const tBody = document.getElementById('tbody');
-    // console.log(data)
-    const district = data.data;
-    var num = 1;
-    for(dis of district){
-        let tr = document.createElement('tr');
-        tr.innerHTML = `<td>${num}</td> <td>${dis.districtbn}</td>`;
-        tBody.appendChild(tr);
-        num++
-    }
+
+const loadData = () => {
+    const id = document.getElementById('fixedCard');
+    id.classList.add('active');
+
+
 }
-
-randomUser();
-
-const country = () => {
-    fetch('https://restcountries.com/v3.1/all')
-    .then(response => response.json())
-    .then(data => displayCountry(data))
-}
-
-const displayCountry = (data) =>{
-    for(data of data){
-        console.log(data.name.common)
-    }
-}
-
-country()
-
-
